@@ -1,0 +1,120 @@
+Configure Slack as a communication channel and integrate it with Jenkins.
+
+🎯 What are we doing in this experiment?
+
+In this experiment, you will:
+
+Install and set up Slack
+
+Create a workspace in Slack
+
+Create a channel (example: #jenkins-alerts)
+
+Install the Slack app in Jenkins
+
+Generate a Slack Webhook / Token
+
+Configure Jenkins to send build notifications to Slack
+
+This is used in CI/CD pipelines so your team receives a message when:
+
+Build succeeds
+
+Build fails
+
+Build starts
+
+Build finishes
+
+🎯 What are we expecting to learn?
+
+You will learn:
+
+How Slack is used for DevOps communication
+
+How Jenkins sends automated notifications
+
+How Webhooks and tokens connect Slack ↔ Jenkins
+
+How to trigger a message in Slack when Jenkins executes a job
+
+After completing C2, your Jenkins pipeline can automatically message your Slack channel like:
+
+“Build SUCCESS: Job #21 finished at 3:45 PM 🎉”
+
+🧪 Steps in C2 (as per your PDF)
+1. Install Slack
+
+Download Slack desktop/app
+
+Create a Slack account
+
+2. Create Workspace
+
+Example:
+vvce-devops-lab
+
+3. Create a Slack Channel
+
+Example:
+#jenkins-notifications
+
+4. Add Slack App Integration
+
+Go to Slack Apps → Search “Jenkins CI”
+
+Add it to your workspace
+
+Generate:
+✔ Integration Token
+✔ Webhook URL
+
+5. Add Plugin in Jenkins
+
+In Jenkins:
+
+Manage Jenkins → Manage Plugins → Available Plugins → Slack Notification
+
+
+Install it.
+
+6. Configure Slack in Jenkins
+Manage Jenkins → Configure System → Slack
+
+
+Paste:
+
+Workspace
+
+Channel
+
+Token Credential ID
+
+Test Connection → Should say:
+“Successful!”
+
+7. Add Slack Notification to a Job
+
+Inside your Jenkins job:
+
+Post-build actions → Slack Notifications
+
+
+Choose:
+
+Notify on Success
+
+Notify on Failure
+
+Notify on Every Build
+
+Run the job → Slack will show a message.
+
+📌 Final Output of C2
+
+Your Slack channel will receive automated messages from Jenkins like:
+
+Build #3 SUCCESS
+Job: DevOps-MavenProject
+Time: 4:22 PM
+Triggered by: SCM change
